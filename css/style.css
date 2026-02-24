@@ -396,7 +396,7 @@ body {
 .top-nav {
     background: #fff;
     border-bottom: 1px solid #e8edf4;
-    padding: 10px 20px;
+    padding: 20px 20px;
 }
 
 .sara-logo {
@@ -418,7 +418,7 @@ body {
     font-size: 8px;
     color: #1565c0;
     letter-spacing: 2px;
-    margin-top: -4px;
+    padding: -4px;
     display: block;
 }
 
@@ -525,7 +525,7 @@ body {
 .bot-nav {
     background: #fff;
     border-bottom: 2px solid #e8ecf0;
-    padding: 0 20px;
+    padding: 15px 20px;
 }
 
 .bot-nav-inner {
@@ -567,7 +567,7 @@ body {
     align-items: center;
     height: 44px;
     padding: 0 14px;
-    font-size: 13.5px;
+    font-size: 12px;
     font-weight: 600;
     color: #222;
     text-decoration: none;
@@ -599,6 +599,7 @@ body {
     color: #1565c0;
 }
 
+
 /* Mobile nav toggle */
 .mob-menu-btn {
     display: none;
@@ -607,48 +608,6 @@ body {
     font-size: 22px;
     color: #1565c0;
     cursor: pointer;
-}
-
-@media(max-width:768px) {
-    .mob-menu-btn {
-        display: block;
-    }
-
-    .nav-ul,
-    .cat-btn,
-    .outlets-btn {
-        display: none;
-    }
-
-    .nav-ul.open {
-        display: flex;
-        flex-direction: column;
-        height: auto;
-        position: absolute;
-        top: 44px;
-        left: 0;
-        right: 0;
-        background: #fff;
-        border-bottom: 2px solid #e8ecf0;
-        z-index: 999;
-        padding: 8px 0;
-    }
-
-    .nav-ul.open li a {
-        height: 40px;
-        padding: 0 20px;
-        border-bottom: none;
-        border-left: 3px solid transparent;
-    }
-
-    .nav-ul.open li a:hover {
-        border-left-color: #1565c0;
-        background: #f5f8ff;
-    }
-
-    .bot-nav {
-        position: relative;
-    }
 }
 
 /* ============================================================
@@ -1402,20 +1361,6 @@ body {
     color: #222;
     letter-spacing: 0.5px;
 }
-
-@media (max-width: 700px) {
-    .cat-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 15px;
-    }
-
-    .cat-bg-ph {
-        width: 100px;
-        height: 100px;
-    }
-}
-
-/* (rest of your original catgrid styles remain, but we override with cleaner version) */
 
 /* ============================================================
        SECTION 7 — EID COLLECTION BANNERS
@@ -2242,7 +2187,623 @@ footer::after {
 }
 
 /* ============================================================
-       RESPONSIVE (unchanged)
+       RESPONSIVE FIXES (ADDED - আপনার কোড অক্ষত রেখে যোগ করা)
+    ============================================================ */
+
+/* Base mobile adjustments */
+@media (max-width: 768px) {
+    html {
+        font-size: 14px;
+    }
+
+    body {
+        overflow-x: hidden;
+    }
+
+    .sw {
+        padding: 0 12px;
+    }
+
+    .sec-pad {
+        padding: 25px 0;
+    }
+
+    .sec-hdr {
+        margin-bottom: 15px;
+        gap: 8px;
+    }
+
+    .sec-ttl {
+        font-size: 1.3rem;
+    }
+}
+
+/* Navbar Mobile Fixes */
+@media (max-width: 768px) {
+    .mob-menu-btn {
+        display: block;
+    }
+
+    .nav-ul,
+    .cat-btn,
+    .outlets-btn {
+        display: none;
+    }
+
+    .nav-ul.open {
+        display: flex;
+        flex-direction: column;
+        height: auto;
+        position: absolute;
+        top: 44px;
+        left: 0;
+        right: 0;
+        background: #fff;
+        border-bottom: 2px solid #e8ecf0;
+        z-index: 999;
+        padding: 8px 0;
+        max-height: 80vh;
+        overflow-y: auto;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    .nav-ul.open li a {
+        height: auto;
+        min-height: 44px;
+        padding: 12px 20px;
+        border-bottom: none;
+        border-left: 3px solid transparent;
+        font-size: 14px;
+        display: flex;
+        align-items: center;
+    }
+
+    .nav-ul.open li a:hover {
+        border-left-color: #1565c0;
+        background: #f5f8ff;
+    }
+
+    .bot-nav {
+        position: relative;
+    }
+
+    .top-nav {
+        padding: 12px 15px;
+    }
+
+    .sara-txt {
+        font-size: 22px;
+    }
+
+    .dheu-txt {
+        font-size: 24px;
+    }
+
+    .logo-div {
+        height: 30px;
+        margin: 0 8px;
+    }
+
+    .srch-wrap {
+        max-width: 100%;
+        margin: 10px 0;
+    }
+
+    .srch-wrap input {
+        padding: 8px 45px 8px 12px;
+        font-size: 13px;
+    }
+
+    .ico-area {
+        gap: 12px;
+    }
+
+    .ico-btn {
+        font-size: 20px;
+    }
+
+    .my-acc span:not(.ava) {
+        display: none;
+    }
+
+    .my-acc .ava {
+        width: 32px;
+        height: 32px;
+        font-size: 16px;
+    }
+}
+
+/* Hero Section Mobile */
+@media (max-width: 768px) {
+    .hero-section {
+        padding: 10px 0 0;
+    }
+
+    .hero-main {
+        min-height: 300px;
+        border-radius: 12px;
+    }
+
+    .hero-content {
+        padding: 18px;
+    }
+
+    .eid-badge-txt {
+        font-size: 1.6rem;
+    }
+
+    .bkash-top {
+        top: 12px;
+        left: 15px;
+    }
+
+    .bkash-icon {
+        width: 30px;
+        height: 30px;
+        font-size: 0.7rem;
+    }
+
+    .hero-logo-top {
+        top: 12px;
+        right: 15px;
+        font-size: 1.1rem;
+    }
+
+    .s1-txt {
+        font-size: 2.5rem;
+    }
+
+    .sb-in {
+        min-height: 140px;
+        padding: 12px;
+    }
+
+    .sb-ttl {
+        font-size: 0.95rem;
+    }
+}
+
+/* Promo Cards Mobile */
+@media (max-width: 768px) {
+    .promo-section {
+        padding: 12px 0;
+    }
+
+    .promo-card {
+        height: auto;
+        min-height: 240px;
+        margin-bottom: 12px;
+    }
+
+    .c-promo {
+        padding: 15px 12px;
+    }
+
+    .sara-ln {
+        font-size: 1.5rem;
+    }
+
+    .disc-num {
+        font-size: 3rem;
+    }
+
+    .pct-s {
+        font-size: 1.4rem;
+    }
+
+    .priv-cards {
+        flex-wrap: wrap;
+    }
+
+    .priv-c {
+        min-width: 80px;
+    }
+
+    .c-fashion {
+        background: linear-gradient(to right, #e8ddd0 40%, #1a6ec7 40%);
+    }
+
+    .fash-img {
+        width: 45%;
+    }
+
+    .fash-txt {
+        width: 55%;
+        padding: 12px 10px;
+    }
+
+    .fash-hl {
+        font-size: 1rem;
+    }
+
+    .vc-ttl {
+        font-size: 1.1rem;
+    }
+
+    .vc-bdg .num {
+        font-size: 1.4rem;
+    }
+
+    .vchip {
+        min-width: 40px;
+        height: 32px;
+        font-size: 0.55rem;
+    }
+
+    .bdg-ttl {
+        font-size: 1.2rem;
+    }
+
+    .bdg-a {
+        font-size: 0.9rem;
+    }
+}
+
+/* Popular Categories Mobile */
+@media (max-width: 768px) {
+    .popcat-section {
+        padding: 20px 0;
+    }
+
+    .slider-track {
+        gap: 10px;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
+        padding-bottom: 10px;
+    }
+
+    .slider-track::-webkit-scrollbar {
+        height: 3px;
+    }
+
+    .slider-track::-webkit-scrollbar-thumb {
+        background: #ccc;
+        border-radius: 10px;
+    }
+
+    .pc-card {
+        flex: 0 0 100px;
+        scroll-snap-align: start;
+    }
+
+    .pc-img {
+        width: 80px;
+        height: 80px;
+    }
+
+    .pc-img .bg-ph i {
+        font-size: 2rem;
+    }
+
+    .pc-name {
+        font-size: 0.7rem;
+    }
+}
+
+/* Category Grid Mobile */
+@media (max-width: 768px) {
+    .cat-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+    }
+
+    .cat-bg-ph {
+        width: 90px;
+        height: 90px;
+        margin-bottom: 8px;
+    }
+
+    .cat-lbl {
+        font-size: 0.9rem;
+    }
+}
+
+/* EID Collection Mobile */
+@media (max-width: 768px) {
+    .eid-grid {
+        grid-template-columns: 1fr;
+        gap: 8px;
+    }
+
+    .eid-bnr {
+        aspect-ratio: 16/9;
+    }
+
+    .eid-lbl {
+        font-size: 1.2rem;
+        bottom: 15px;
+        left: 15px;
+    }
+
+    .eid-slbl {
+        font-size: 0.7rem;
+    }
+
+    .eid-bg i {
+        font-size: 4rem;
+    }
+}
+
+/* Trending Section Mobile */
+@media (max-width: 768px) {
+    .trending-section {
+        padding: 20px 0;
+    }
+
+    .sec-hdr {
+        flex-wrap: wrap;
+    }
+
+    .slider-row {
+        width: 100%;
+        justify-content: space-between;
+    }
+
+    .cat-tab {
+        padding: 5px 12px;
+        font-size: 0.75rem;
+    }
+}
+
+/* Daily Deals Mobile */
+@media (max-width: 768px) {
+    .deals-section {
+        padding: 25px 15px 20px;
+    }
+
+    .deals-hdr {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+
+    .tmr-wrap {
+        flex-wrap: wrap;
+    }
+
+    .tmr-box {
+        padding: 3px 8px;
+        font-size: 0.85rem;
+        min-width: 32px;
+    }
+}
+
+/* Unlimited Offer Mobile */
+@media (max-width: 768px) {
+    .unlimited-section {
+        padding: 20px 0;
+    }
+
+    .uo-name {
+        font-size: 0.75rem;
+        white-space: normal;
+        line-height: 1.3;
+    }
+}
+
+/* Gadget Festive Mobile */
+@media (max-width: 768px) {
+    .gadget-section {
+        padding: 20px 0;
+    }
+
+    .gf-card {
+        aspect-ratio: 16/9;
+        margin-bottom: 12px;
+    }
+
+    .excl-bar {
+        padding: 8px 12px;
+    }
+
+    .excl-sc {
+        font-size: 0.75rem;
+    }
+
+    .excl-ttl {
+        font-size: 1rem;
+        letter-spacing: 2px;
+    }
+
+    .gf-prod-area {
+        padding: 10px 12px;
+    }
+}
+
+/* Corporate Partner Mobile */
+@media (max-width: 768px) {
+    .corp-section {
+        padding: 20px 12px;
+    }
+
+    .corp-inner {
+        padding: 30px 15px 25px;
+    }
+
+    .corp-hs {
+        font-size: 2.5rem;
+    }
+
+    .corp-ttl {
+        font-size: 1.2rem;
+        margin-bottom: 25px;
+    }
+
+    .corp-ico {
+        width: 60px;
+        height: 60px;
+        font-size: 1.8rem;
+    }
+
+    .corp-lbl {
+        font-size: 0.8rem;
+    }
+
+    .find-btn {
+        padding: 10px 30px;
+        font-size: 0.8rem;
+        margin-top: 25px;
+    }
+
+    .corp-tagline {
+        font-size: 0.8rem;
+    }
+}
+
+/* Footer Mobile */
+@media (max-width: 768px) {
+    .ft-top {
+        padding: 35px 0 25px;
+    }
+
+    .ft-brand-nm {
+        font-size: 1.5rem;
+        margin-bottom: 15px;
+    }
+
+    .ft-ci {
+        font-size: 0.8rem;
+    }
+
+    .ft-h6 {
+        margin-top: 20px;
+        margin-bottom: 12px;
+    }
+
+    .soc-icons {
+        justify-content: flex-start;
+    }
+
+    .app-bdgs {
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .app-bdg {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .ft-bot p {
+        font-size: 0.7rem;
+        padding: 0 10px;
+    }
+}
+
+/* Extra Small Devices */
+@media (max-width: 480px) {
+    .sec-ttl {
+        font-size: 1.1rem;
+    }
+
+    .see-link {
+        font-size: 0.8rem;
+    }
+
+    .arr-btn {
+        width: 34px;
+        height: 34px;
+        font-size: 0.7rem;
+    }
+
+    .hero-main {
+        min-height: 250px;
+    }
+
+    .eid-badge-txt {
+        font-size: 1.3rem;
+    }
+
+    .s1-txt {
+        font-size: 2rem;
+    }
+
+    .cat-bg-ph {
+        width: 70px;
+        height: 70px;
+    }
+
+    .cat-lbl {
+        font-size: 0.8rem;
+    }
+
+    .pc-card {
+        flex: 0 0 70px;
+    }
+
+    .pc-img {
+        width: 60px;
+        height: 60px;
+    }
+
+    .pc-img .bg-ph i {
+        font-size: 1.5rem;
+    }
+
+    .pc-name {
+        font-size: 0.65rem;
+    }
+
+    .corp-hs {
+        font-size: 2rem;
+    }
+
+    .corp-ttl {
+        font-size: 1rem;
+    }
+
+    .find-btn {
+        padding: 8px 20px;
+        font-size: 0.7rem;
+    }
+}
+
+/* Landscape Orientation */
+@media (max-width: 768px) and (orientation: landscape) {
+    .nav-ul.open {
+        max-height: 60vh;
+    }
+
+    .hero-main {
+        min-height: 200px;
+    }
+
+    .promo-card {
+        min-height: 200px;
+    }
+
+    .gf-card {
+        aspect-ratio: 16/7;
+    }
+}
+
+/* Touch Device Optimizations */
+@media (hover: none) and (pointer: coarse) {
+
+    .arr-btn,
+    .nav-ul.open li a,
+    .ico-btn,
+    .cat-tab {
+        min-height: 44px;
+        min-width: 44px;
+    }
+
+    .qv-btn {
+        display: none;
+    }
+
+    .pcard:hover {
+        transform: none;
+    }
+
+    .pcard:active {
+        opacity: 0.8;
+    }
+}
+
+/* ============================================================
+       EXISTING RESPONSIVE (your original - unchanged)
     ============================================================ */
 @media(max-width:1100px) {
 

@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E‑commerce · responsive shop</title>
+    <!-- Bootstrap + Font Awesome -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <style>
+        /* ============================================================
+       NAVBAR  (sticky)
+    ============================================================ */
+        .navbar-wrap {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 12px rgba(0, 0, 0, .08);
+        }
+
+        /* Top bar */
+        .top-nav {
+            background: #fff;
+            border-bottom: 1px solid #e8edf4;
+            padding: 20px 20px;
+        }
+
+        .sara-logo {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            text-decoration: none;
+        }
+
+        .sara-txt {
+            font-size: 26px;
+            font-weight: 800;
+            color: #1565c0;
+            letter-spacing: 1px;
+            line-height: 1;
+        }
+
+        .sara-sub {
+            font-size: 8px;
+            color: #1565c0;
+            letter-spacing: 2px;
+            padding: -4px;
+            display: block;
+        }
+
+        .logo-div {
+            width: 2px;
+            height: 36px;
+            background: #333;
+            margin: 0 14px;
+        }
+
+        .dheu-txt {
+            font-size: 28px;
+            font-weight: 900;
+            color: #111;
+            letter-spacing: 2px;
+            font-style: italic;
+        }
+
+        .srch-wrap {
+            position: relative;
+            width: 100%;
+            max-width: 520px;
+        }
+
+        .srch-wrap input {
+            width: 100%;
+            padding: 9px 50px 9px 16px;
+            border: 1.5px solid #ccc;
+            border-radius: 4px;
+            font-size: 14px;
+            outline: none;
+            color: #555;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .srch-wrap input:focus {
+            border-color: #1565c0;
+        }
+
+        .srch-btn {
+            position: absolute;
+            right: 0;
+            top: 0;
+            height: 100%;
+            padding: 0 16px;
+            background: #1565c0;
+            border: none;
+            border-radius: 0 4px 4px 0;
+            color: #fff;
+            cursor: pointer;
+            font-size: 15px;
+        }
+
+        .srch-btn:hover {
+            background: #0d47a1;
+        }
+
+        .ico-area {
+            display: flex;
+            align-items: center;
+            gap: 18px;
+        }
+
+        .ico-btn {
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 22px;
+            color: #1565c0;
+            transition: color .2s;
+        }
+
+        .ico-btn:hover {
+            color: #0d47a1;
+        }
+
+        .my-acc {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            text-decoration: none;
+            color: #1565c0;
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        .my-acc .ava {
+            width: 34px;
+            height: 34px;
+            border-radius: 50%;
+            background: #e8edf4;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            color: #555;
+        }
+
+        .my-acc:hover {
+            color: #0d47a1;
+        }
+
+        /* Bottom nav */
+        .bot-nav {
+            background: #fff;
+            border-bottom: 2px solid #e8ecf0;
+            padding: 15px 20px;
+        }
+
+        .bot-nav-inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 44px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .cat-btn {
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 700;
+            color: #111;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            white-space: nowrap;
+        }
+
+        .cat-btn:hover {
+            color: #1565c0;
+        }
+
+        .nav-ul {
+            display: flex;
+            align-items: center;
+            gap: 0;
+            list-style: none;
+            height: 100%;
+        }
+
+        .nav-ul li a {
+            display: flex;
+            align-items: center;
+            height: 44px;
+            padding: 0 14px;
+            font-size: 12px;
+            font-weight: 600;
+            color: #222;
+            text-decoration: none;
+            border-bottom: 3px solid transparent;
+            transition: color .2s, border-color .2s;
+            white-space: nowrap;
+        }
+
+        .nav-ul li a:hover,
+        .nav-ul li a.active {
+            color: #1565c0;
+            border-bottom-color: #1565c0;
+        }
+
+        .outlets-btn {
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 700;
+            color: #111;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            white-space: nowrap;
+        }
+
+        .outlets-btn:hover {
+            color: #1565c0;
+        }
+
+        /* Mobile nav toggle */
+        .mob-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 22px;
+            color: #1565c0;
+            cursor: pointer;
+        }
+
+        @media(max-width:768px) {
+            .mob-menu-btn {
+                display: block;
+            }
+
+            .nav-ul,
+            .cat-btn,
+            .outlets-btn {
+                display: none;
+            }
+
+            .nav-ul.open {
+                display: flex;
+                flex-direction: column;
+                height: auto;
+                position: absolute;
+                top: 44px;
+                left: 0;
+                right: 0;
+                background: #fff;
+                border-bottom: 2px solid #e8ecf0;
+                z-index: 999;
+                padding: 8px 0;
+            }
+
+            .nav-ul.open li a {
+                height: 40px;
+                padding: 0 20px;
+                border-bottom: none;
+                border-left: 3px solid transparent;
+            }
+
+            .nav-ul.open li a:hover {
+                border-left-color: #1565c0;
+                background: #f5f8ff;
+            }
+
+            .bot-nav {
+                position: relative;
+            }
+        }
+
+        :root {
+            --primary-color: #ffc107;
+        }
+
+        body {
+            overflow-x: hidden;
+            background: #f8f9fa;
+        }
+
+        /* ----- ARROW BUTTONS ----- */
+        .arr-btn {
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            border: 1px solid #ddd;
+            background: #fff;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            transition: 0.2s;
+            cursor: pointer;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+        }
+
+        .arr-btn:hover {
+            background: #000;
+            color: #fff;
+            border-color: #000;
+        }
+
+        /* ----- RESPONSIVE FIXES ----- */
+        @media (min-width: 576px) {
+            .pcard {
+                flex: 0 0 calc(50% - 12px);
+            }
+        }
+
+        @media (min-width: 768px) {
+            .pcard {
+                flex: 0 0 calc(33.33% - 12px);
+            }
+        }
+
+        @media (min-width: 992px) {
+            .pcard {
+                flex: 0 0 calc(25% - 15px);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .sidebar {
+                height: auto;
+                position: relative;
+                border: none;
+                margin-bottom: 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="navbar-wrap">
+        <div class="top-nav">
+            <div class="d-flex align-items-center justify-content-between gap-3"
+                style="max-width:1400px;margin:0 auto;">
+                <!-- Logo -->
+                <div class="d-flex align-items-center flex-shrink-0">
+                    <a href="#" class="sara-logo">
+                        <div>
+                            <span class="sara-txt">SaRa</span>
+                            <span class="sara-sub">LIFESTYLE LTD</span>
+                        </div>
+                        <i class="fas fa-ribbon" style="color:#1565c0;font-size:22px;margin-left:4px;"></i>
+                    </a>
+                    <div class="logo-div"></div>
+                    <span class="dheu-txt">DHEU</span>
+                </div>
+                <!-- Search -->
+                <div class="srch-wrap flex-grow-1" style="max-width:520px;margin:0 auto;">
+                    <input type="text" placeholder="I'm shopping for ...">
+                    <button class="srch-btn"><i class="fas fa-search"></i></button>
+                </div>
+                <!-- Icons -->
+                <div class="ico-area flex-shrink-0">
+                    <button class="ico-btn d-none d-md-flex"><i class="fas fa-heart"></i></button>
+                    <button class="ico-btn"><i class="fas fa-shopping-cart"></i></button>
+                    <a href="#" class="my-acc d-none d-md-flex">
+                        <div class="ava"><i class="fas fa-user"></i></div>
+                        <span>My Account</span>
+                    </a>
+                    <button class="mob-menu-btn" id="mobMenuBtn"><i class="fas fa-bars"></i></button>
+                </div>
+            </div>
+        </div>
+        <!-- Bottom -->
+        <div class="bot-nav">
+            <div class="bot-nav-inner">
+                <button class="cat-btn"><i class="fas fa-bars"></i> Shop By Category</button>
+                <ul class="nav-ul" id="mainNav">
+                    <li><a href="#" class="active">Marketplace</a></li>
+                    <li><a href="#">SaRa</a></li>
+                    <li><a href="#">DHEU</a></li>
+                    <li><a href="#">EID-UL-FITR 26</a></li>
+                    <li><a href="#">Best Deals</a></li>
+                    <li><a href="#">Mens</a></li>
+                    <li><a href="#">Womens</a></li>
+                    <li><a href="#">Kids</a></li>
+                </ul>
+                <button class="outlets-btn"><i class="fas fa-sliders-h"></i> Outlets</button>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+
+</html>

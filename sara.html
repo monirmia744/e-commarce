@@ -1,0 +1,856 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E‑commerce · responsive shop</title>
+    <!-- Bootstrap + Font Awesome -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <style>
+        /* ============================================================
+       FOOTER
+    ============================================================ */
+        footer {
+            background: #1a1a2e;
+            color: #e0e6f0;
+            font-family: 'Poppins', sans-serif;
+            position: relative;
+            overflow: hidden;
+        }
+
+        footer::before {
+            content: '';
+            position: absolute;
+            top: -60px;
+            left: -60px;
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, rgba(230, 57, 70, .12) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        footer::after {
+            content: '';
+            position: absolute;
+            bottom: 40px;
+            right: -40px;
+            width: 250px;
+            height: 250px;
+            background: radial-gradient(circle, rgba(230, 57, 70, .08) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .ft-top {
+            padding: 56px 0 38px;
+            border-bottom: 1px solid rgba(255, 255, 255, .07);
+        }
+
+        .ft-brand-nm {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #fff;
+        }
+
+        .ft-brand-nm span {
+            color: #e63946;
+        }
+
+        .ft-ci {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            margin-bottom: 12px;
+            color: #a0a8b8;
+            font-size: .88rem;
+        }
+
+        .ft-ci i {
+            color: #e63946;
+            margin-top: 3px;
+            font-size: .9rem;
+            flex-shrink: 0;
+        }
+
+        .ft-ci a {
+            color: #a0a8b8;
+            text-decoration: none;
+            transition: color .2s;
+        }
+
+        .ft-ci a:hover {
+            color: #e63946;
+        }
+
+        .ft-dbid {
+            font-size: .76rem;
+            color: #606880;
+            margin-top: 14px;
+            line-height: 1.8;
+        }
+
+        .ft-dbid strong {
+            color: #a0a8b8;
+        }
+
+        .ft-h6 {
+            font-size: .76rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: #fff;
+            margin-bottom: 18px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .ft-h6::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 28px;
+            height: 2px;
+            background: #e63946;
+            border-radius: 2px;
+        }
+
+        .ft-links {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .ft-links li {
+            margin-bottom: 9px;
+        }
+
+        .ft-links a {
+            color: #a0a8b8;
+            text-decoration: none;
+            font-size: .87rem;
+            transition: all .2s;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .ft-links a::before {
+            content: '';
+            width: 0;
+            height: 1px;
+            background: #e63946;
+            transition: width .2s;
+        }
+
+        .ft-links a:hover {
+            color: #fff;
+            padding-left: 4px;
+        }
+
+        .ft-links a:hover::before {
+            width: 12px;
+        }
+
+        .soc-lbl {
+            font-size: .72rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: #a0a8b8;
+            margin-bottom: 9px;
+        }
+
+        .soc-icons {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+            margin-bottom: 18px;
+        }
+
+        .si {
+            width: 36px;
+            height: 36px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: .9rem;
+            text-decoration: none;
+            transition: all .25s;
+            border: 1px solid rgba(255, 255, 255, .07);
+        }
+
+        .si:hover {
+            transform: translateY(-3px);
+            border-color: transparent;
+        }
+
+        .si-fb {
+            color: #1877f2;
+            background: rgba(24, 119, 242, .12);
+        }
+
+        .si-fb:hover {
+            background: #1877f2;
+            color: #fff;
+        }
+
+        .si-li {
+            color: #0a66c2;
+            background: rgba(10, 102, 194, .12);
+        }
+
+        .si-li:hover {
+            background: #0a66c2;
+            color: #fff;
+        }
+
+        .si-yt {
+            color: #f00;
+            background: rgba(255, 0, 0, .1);
+        }
+
+        .si-yt:hover {
+            background: #f00;
+            color: #fff;
+        }
+
+        .si-ig {
+            color: #e4405f;
+            background: rgba(228, 64, 95, .1);
+        }
+
+        .si-ig:hover {
+            background: linear-gradient(135deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+            color: #fff;
+        }
+
+        .si-tt {
+            color: #fff;
+            background: rgba(255, 255, 255, .08);
+        }
+
+        .si-tt:hover {
+            background: #000;
+            color: #fff;
+        }
+
+        .si-x {
+            color: #fff;
+            background: rgba(255, 255, 255, .08);
+        }
+
+        .si-x:hover {
+            background: #000;
+            color: #fff;
+        }
+
+        .app-bdgs {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-top: 13px;
+        }
+
+        .app-bdg {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(255, 255, 255, .06);
+            border: 1px solid rgba(255, 255, 255, .07);
+            border-radius: 10px;
+            padding: 8px 14px;
+            text-decoration: none;
+            color: #fff;
+            transition: all .25s;
+        }
+
+        .app-bdg:hover {
+            background: rgba(255, 255, 255, .12);
+            color: #fff;
+            transform: translateY(-2px);
+        }
+
+        .app-bdg i {
+            font-size: 1.4rem;
+        }
+
+        .app-bdg small {
+            display: block;
+            font-size: .64rem;
+            color: #a0a8b8;
+            line-height: 1;
+            text-transform: uppercase;
+            letter-spacing: .5px;
+        }
+
+        .app-bdg span {
+            font-size: .84rem;
+            font-weight: 600;
+        }
+
+        .ft-bot {
+            padding: 18px 0;
+            background: rgba(0, 0, 0, .25);
+        }
+
+        .ft-bot p {
+            margin: 0;
+            color: #606880;
+            font-size: .82rem;
+            text-align: center;
+        }
+
+        .ft-bot a {
+            color: #e63946;
+            text-decoration: none;
+        }
+
+        /* ============================================================
+       NAVBAR  (sticky)
+    ============================================================ */
+        .navbar-wrap {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 12px rgba(0, 0, 0, .08);
+        }
+
+        /* Top bar */
+        .top-nav {
+            background: #fff;
+            border-bottom: 1px solid #e8edf4;
+            padding: 20px 20px;
+        }
+
+        .sara-logo {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            text-decoration: none;
+        }
+
+        .sara-txt {
+            font-size: 26px;
+            font-weight: 800;
+            color: #1565c0;
+            letter-spacing: 1px;
+            line-height: 1;
+        }
+
+        .sara-sub {
+            font-size: 8px;
+            color: #1565c0;
+            letter-spacing: 2px;
+            padding: -4px;
+            display: block;
+        }
+
+        .logo-div {
+            width: 2px;
+            height: 36px;
+            background: #333;
+            margin: 0 14px;
+        }
+
+        .dheu-txt {
+            font-size: 28px;
+            font-weight: 900;
+            color: #111;
+            letter-spacing: 2px;
+            font-style: italic;
+        }
+
+        .srch-wrap {
+            position: relative;
+            width: 100%;
+            max-width: 520px;
+        }
+
+        .srch-wrap input {
+            width: 100%;
+            padding: 9px 50px 9px 16px;
+            border: 1.5px solid #ccc;
+            border-radius: 4px;
+            font-size: 14px;
+            outline: none;
+            color: #555;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .srch-wrap input:focus {
+            border-color: #1565c0;
+        }
+
+        .srch-btn {
+            position: absolute;
+            right: 0;
+            top: 0;
+            height: 100%;
+            padding: 0 16px;
+            background: #1565c0;
+            border: none;
+            border-radius: 0 4px 4px 0;
+            color: #fff;
+            cursor: pointer;
+            font-size: 15px;
+        }
+
+        .srch-btn:hover {
+            background: #0d47a1;
+        }
+
+        .ico-area {
+            display: flex;
+            align-items: center;
+            gap: 18px;
+        }
+
+        .ico-btn {
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 22px;
+            color: #1565c0;
+            transition: color .2s;
+        }
+
+        .ico-btn:hover {
+            color: #0d47a1;
+        }
+
+        .my-acc {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            text-decoration: none;
+            color: #1565c0;
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        .my-acc .ava {
+            width: 34px;
+            height: 34px;
+            border-radius: 50%;
+            background: #e8edf4;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            color: #555;
+        }
+
+        .my-acc:hover {
+            color: #0d47a1;
+        }
+
+        /* Bottom nav */
+        .bot-nav {
+            background: #fff;
+            border-bottom: 2px solid #e8ecf0;
+            padding: 15px 20px;
+        }
+
+        .bot-nav-inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 44px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .cat-btn {
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 700;
+            color: #111;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            white-space: nowrap;
+        }
+
+        .cat-btn:hover {
+            color: #1565c0;
+        }
+
+        .nav-ul {
+            display: flex;
+            align-items: center;
+            gap: 0;
+            list-style: none;
+            height: 100%;
+        }
+
+        .nav-ul li a {
+            display: flex;
+            align-items: center;
+            height: 44px;
+            padding: 0 14px;
+            font-size: 12px;
+            font-weight: 600;
+            color: #222;
+            text-decoration: none;
+            border-bottom: 3px solid transparent;
+            transition: color .2s, border-color .2s;
+            white-space: nowrap;
+        }
+
+        .nav-ul li a:hover,
+        .nav-ul li a.active {
+            color: #1565c0;
+            border-bottom-color: #1565c0;
+        }
+
+        .outlets-btn {
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 700;
+            color: #111;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            white-space: nowrap;
+        }
+
+        .outlets-btn:hover {
+            color: #1565c0;
+        }
+
+        /* Mobile nav toggle */
+        .mob-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 22px;
+            color: #1565c0;
+            cursor: pointer;
+        }
+
+        @media(max-width:768px) {
+            .mob-menu-btn {
+                display: block;
+            }
+
+            .nav-ul,
+            .cat-btn,
+            .outlets-btn {
+                display: none;
+            }
+
+            .nav-ul.open {
+                display: flex;
+                flex-direction: column;
+                height: auto;
+                position: absolute;
+                top: 44px;
+                left: 0;
+                right: 0;
+                background: #fff;
+                border-bottom: 2px solid #e8ecf0;
+                z-index: 999;
+                padding: 8px 0;
+            }
+
+            .nav-ul.open li a {
+                height: 40px;
+                padding: 0 20px;
+                border-bottom: none;
+                border-left: 3px solid transparent;
+            }
+
+            .nav-ul.open li a:hover {
+                border-left-color: #1565c0;
+                background: #f5f8ff;
+            }
+
+            .bot-nav {
+                position: relative;
+            }
+        }
+
+        :root {
+            --primary-color: #ffc107;
+        }
+
+        body {
+            overflow-x: hidden;
+            background: #f8f9fa;
+        }
+
+        /* ----- ARROW BUTTONS ----- */
+        .arr-btn {
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            border: 1px solid #ddd;
+            background: #fff;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            transition: 0.2s;
+            cursor: pointer;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+        }
+
+        .arr-btn:hover {
+            background: #000;
+            color: #fff;
+            border-color: #000;
+        }
+
+        /* ----- SECTION HEADER ----- */
+        .sec-hdr {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            margin-bottom: 1rem;
+        }
+
+        /* ----- RESPONSIVE FIXES ----- */
+        @media (min-width: 576px) {
+            .pcard {
+                flex: 0 0 calc(50% - 12px);
+            }
+        }
+
+        @media (min-width: 768px) {
+            .pcard {
+                flex: 0 0 calc(33.33% - 12px);
+            }
+        }
+
+        @media (min-width: 992px) {
+            .pcard {
+                flex: 0 0 calc(25% - 15px);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .sidebar {
+                height: auto;
+                position: relative;
+                border: none;
+                margin-bottom: 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="navbar-wrap">
+        <div class="top-nav">
+            <div class="d-flex align-items-center justify-content-between gap-3"
+                style="max-width:1400px;margin:0 auto;">
+                <!-- Logo -->
+                <div class="d-flex align-items-center flex-shrink-0">
+                    <a href="index.html" class="sara-logo">
+                        <div>
+                            <span class="sara-txt">SaRa</span>
+                            <span class="sara-sub">LIFESTYLE LTD</span>
+                        </div>
+                        <i class="fas fa-ribbon" style="color:#1565c0;font-size:22px;margin-left:4px;"></i>
+                    </a>
+                    <div class="logo-div"></div>
+                    <span class="dheu-txt">DHEU</span>
+                </div>
+                <!-- Search -->
+                <div class="srch-wrap flex-grow-1" style="max-width:520px;margin:0 auto;">
+                    <input type="text" placeholder="I'm shopping for ...">
+                    <button class="srch-btn"><i class="fas fa-search"></i></button>
+                </div>
+                <!-- Icons -->
+                <div class="ico-area flex-shrink-0">
+                    <button class="ico-btn d-none d-md-flex"><i class="fas fa-heart"></i></button>
+                    <button class="ico-btn"><i class="fas fa-shopping-cart"></i></button>
+                    <a href="#" class="my-acc d-none d-md-flex">
+                        <div class="ava"><i class="fas fa-user"></i></div>
+                        <span>My Account</span>
+                    </a>
+                    <button class="mob-menu-btn" id="mobMenuBtn"><i class="fas fa-bars"></i></button>
+                </div>
+            </div>
+        </div>
+        <!-- Bottom -->
+        <div class="bot-nav">
+            <div class="bot-nav-inner">
+                <a class="cat-btn nav-link" href="category.html"><i class="fas fa-bars"></i> Shop By Category</a>
+                <ul class="nav-ul" id="mainNav">
+                    <li><a href="marketplace.html" class="">Marketplace</a></li>
+                    <li><a href="sara.html">SaRa</a></li>
+                    <li><a href="dheu.html  ">DHEU</a></li>
+                    <li><a href="eid_ul_fitor.html">EID-UL-FITR 26</a></li>
+                    <li><a href="best_dils.html">Best Deals</a></li>
+                    <li><a href="man.html">Mens</a></li>
+                    <li><a href="women.html">Womens</a></li>
+                    <li><a href="kids.html">Kids</a></li>
+                </ul>
+                <button class="outlets-btn"><i class="fas fa-sliders-h"></i> Outlets</button>
+            </div>
+        </div>
+    </div>
+
+    <section class="py-3 bg-dark-subtle">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-2">
+                    <h2>SARA Section</h2>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="ft-top">
+            <div class="container">
+                <div class="row g-4">
+                    <div class="col-lg-3 col-md-6">
+                        <div class="ft-brand-nm mb-3">Sa<span>Ra</span> Lifestyle</div>
+                        <div class="ft-ci"><i class="fas fa-map-marker-alt"></i><span>Avenue #02, Road #14, House No
+                                #966,<br>Mirpur DOHS, DHAKA-1216, Bangladesh.</span></div>
+                        <div class="ft-ci"><i class="fas fa-phone-alt"></i><a
+                                href="tel:+8801885998899">+88-01885-998899</a></div>
+                        <div class="ft-ci"><i class="fas fa-envelope"></i><a
+                                href="mailto:support@saralifestyle.com">support@saralifestyle.com</a></div>
+                        <div class="ft-dbid">DBID Number: <strong>204425796</strong><br>D-U-N-S Number:
+                            <strong>731962671</strong>
+                        </div>
+                    </div>
+                    <div class="col-lg-2 col-md-3 col-6">
+                        <h6 class="ft-h6">Company</h6>
+                        <ul class="ft-links">
+                            <li><a href="#">Blogs</a></li>
+                            <li><a href="#">Outlets</a></li>
+                            <li><a href="#">Careers</a></li>
+                            <li><a href="#">About Us</a></li>
+                            <li><a href="#">Contact Us</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-lg-2 col-md-3 col-6">
+                        <h6 class="ft-h6">Customer</h6>
+                        <ul class="ft-links">
+                            <li><a href="#">Login</a></li>
+                            <li><a href="#">Register</a></li>
+                            <li><a href="#">Brands</a></li>
+                            <li><a href="#">Best Deals</a></li>
+                            <li><a href="#">Marketplace</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-lg-2 col-md-6 col-6">
+                        <h6 class="ft-h6">Help</h6>
+                        <ul class="ft-links">
+                            <li><a href="#">FAQs</a></li>
+                            <li><a href="#">Privacy Policy</a></li>
+                            <li><a href="#">Cookies Policy</a></li>
+                            <li><a href="#">Terms & Conditions</a></li>
+                            <li><a href="#">Replacement Policy</a></li>
+                            <li><a href="#">EMI Terms & Conditions</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-lg-3 col-md-6">
+                        <h6 class="ft-h6">Social & App</h6>
+                        <div class="soc-lbl">Social Media for SaRa</div>
+                        <div class="soc-icons"><a href="#" class="si si-fb"><i class="fab fa-facebook-f"></i></a><a
+                                href="#" class="si si-li"><i class="fab fa-linkedin-in"></i></a><a href="#"
+                                class="si si-yt"><i class="fab fa-youtube"></i></a><a href="#" class="si si-ig"><i
+                                    class="fab fa-instagram"></i></a><a href="#" class="si si-tt"><i
+                                    class="fab fa-tiktok"></i></a><a href="#" class="si si-x"><i
+                                    class="fab fa-x-twitter"></i></a></div>
+                        <div class="soc-lbl">Social Media for DHEU</div>
+                        <div class="soc-icons"><a href="#" class="si si-fb"><i class="fab fa-facebook-f"></i></a><a
+                                href="#" class="si si-yt"><i class="fab fa-youtube"></i></a><a href="#"
+                                class="si si-ig"><i class="fab fa-instagram"></i></a><a href="#" class="si si-tt"><i
+                                    class="fab fa-tiktok"></i></a></div>
+                        <div class="soc-lbl mt-2">Download App</div>
+                        <div class="app-bdgs">
+                            <a href="#" class="app-bdg"><i class="fab fa-google-play" style="color:#34a853;"></i>
+                                <div><small>Get it on</small><span>Google Play</span></div>
+                            </a>
+                            <a href="#" class="app-bdg"><i class="fab fa-apple"></i>
+                                <div><small>Available on the</small><span>App Store</span></div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="ft-bot">
+            <div class="container">
+                <p>© 2026 <a href="#">SaRa Lifestyle Ltd.</a> All Rights Reserved</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- slider javascript -->
+    <script>
+        (function () {
+            // stores current scroll index for each track
+            const indices = {};
+
+            window.slide = function (trackId, direction) {
+                const track = document.getElementById(trackId);
+                if (!track) return;
+                const container = track.parentElement;
+                const cards = Array.from(track.children);
+                if (cards.length === 0) return;
+
+                // get gap from computed style
+                const gap = parseInt(window.getComputedStyle(track).gap) || 15;
+                // card width + gap
+                const cardWidth = cards[0].offsetWidth + gap;
+
+                const visibleWidth = container.offsetWidth;
+                const visibleCards = Math.max(1, Math.floor(visibleWidth / cardWidth));
+                const maxIndex = Math.max(0, cards.length - visibleCards);
+
+                if (indices[trackId] === undefined) indices[trackId] = 0;
+
+                let newIndex = indices[trackId] + direction;
+                if (newIndex > maxIndex) newIndex = 0;
+                if (newIndex < 0) newIndex = maxIndex;
+
+                indices[trackId] = newIndex;
+                track.style.transform = `translateX(-${newIndex * cardWidth}px)`;
+            };
+
+            // reset on resize
+            window.addEventListener('resize', function () {
+                document.querySelectorAll('.slider-track').forEach(track => {
+                    track.style.transform = 'translateX(0)';
+                    indices[track.id] = 0;
+                });
+            });
+
+            // initialize indices
+            document.querySelectorAll('.slider-track').forEach(track => {
+                indices[track.id] = 0;
+            });
+        })();
+    </script>
+
+    <!-- Bootstrap JS bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- image fallback -->
+    <script>
+        document.addEventListener('error', function (e) {
+            const img = e.target;
+            if (img.tagName === 'IMG' && !img.src.includes('via.placeholder.com')) {
+                img.src = 'https://via.placeholder.com/150?text=Product';
+                img.onerror = null;
+            }
+        }, true);
+    </script>
+</body>
+
+</html>
